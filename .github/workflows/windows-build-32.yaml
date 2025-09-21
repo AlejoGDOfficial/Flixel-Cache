@@ -1,0 +1,23 @@
+name: Windows Build (32 Bits)
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Windows Build 32 Bits
+    permissions: write-all
+    runs-on: windows-latest
+
+    steps:
+      - name: Pull the New Commit
+        uses: actions/checkout@v2
+
+      - name: Setup Haxe
+        uses: krdlab/setup-haxe@v1
+        with:
+          haxe-version: 4.3.6
+
+      - name: Install Libraries
+        run: setup/install-haxelibs.bat
