@@ -19,6 +19,10 @@ jobs:
         with:
           haxe-version: 4.3.7
 
+      - name: Ensure .haxelib exists
+        run: if not exist ".haxelib" mkdir .haxelib
+
+
       - name: Cache Local Haxelibs
         uses: actions/cache@v3
         with:
