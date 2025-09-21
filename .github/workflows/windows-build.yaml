@@ -17,7 +17,15 @@ jobs:
       - name: Setup Haxe
         uses: krdlab/setup-haxe@v1
         with:
-          haxe-version: 4.3.6
+          haxe-version: 4.3.7
+
+      - name: Cache Local Haxelibs
+        uses: actions/cache@v3
+        with:
+          path: .haxelib
+          key: windows-haxelibs-${{ hashFiles('setup/install-haxelibs.bat') }}
+          restore-keys: |
+            windows-haxelibs-
 
       - name: Install Libraries
         run: setup/install-haxelibs.bat
