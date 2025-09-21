@@ -19,10 +19,10 @@ jobs:
         with:
           haxe-version: 4.3.7
 
-      - name: Cache Haxe Libs
+      - name: Cache Local Haxelibs
         uses: actions/cache@v3
         with:
-          path: ${{ env.HAXEPATH }}\lib
+          path: .haxelib/
           key: windows-haxelibs-${{ hashFiles('setup/install-haxelibs.bat') }}
           restore-keys: |
             windows-haxelibs-
