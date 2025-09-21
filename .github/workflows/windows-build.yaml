@@ -19,14 +19,10 @@ jobs:
         with:
           haxe-version: 4.3.7
 
-      - name: Ensure .haxelib exists
-        shell: cmd
-        run: if not exist ".haxelib" mkdir .haxelib
-
-      - name: Cache Local Haxelibs
+      - name: Cache Haxe Libs
         uses: actions/cache@v3
         with:
-          path: .haxelib
+          path: ${{ env.HAXEPATH }}\lib
           key: windows-haxelibs-${{ hashFiles('setup/install-haxelibs.bat') }}
           restore-keys: |
             windows-haxelibs-
